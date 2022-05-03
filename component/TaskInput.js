@@ -49,9 +49,10 @@ function TaskInput(type) {
                 </div>
                 
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <input type="radio" name="task-priority" value="low">Low
-                    <input type="radio" name="task-priority" value="medium">Medium
-                    <input type="radio" name="task-priority" value="high">High
+                    <label class="task-input__label" for="task-priority">PRIORITY</label>
+                    <input class="task-input__radio" type="radio" name="task-priority" value="low">Low
+                    <input class="task-input__radio" type="radio" name="task-priority" value="medium">Medium
+                    <input class="task-input__radio" type="radio" name="task-priority" value="high">High
                     <p class="form-msg"></p>
                 </div>
 
