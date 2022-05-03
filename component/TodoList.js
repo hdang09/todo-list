@@ -3,7 +3,7 @@ import { connect } from '../store.js'
 import TodoItem from './TodoItem.js'
 import TaskInput from './TaskInput.js'
 
-function TodoList({ todos }) {
+function TodoList({ todos, editFlag }) {
     var showInputModal = type => {
         var html = TaskInput(type)
         document.getElementById('root').innerHTML += html
@@ -16,7 +16,7 @@ function TodoList({ todos }) {
             <h2 class="tag">Todo</h2>
             <span class="count">(${todos.length})</span>
             <ul class="todo-list">
-                ${todos.map((todo, index) => TodoItem(todo, index))}
+                ${todos.map((todo, index) => TodoItem(todo, index, editFlag))}
             </ul>
             <div onclick="showInputModal('todos')" class="todo-list__add">
                 <i class="todo-list__add--icon fa-solid fa-plus"></i>

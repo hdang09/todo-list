@@ -2,13 +2,13 @@ import html from '../core.js'
 import { connect } from '../store.js'
 import TodoItem from './TodoItem.js'
 
-function DoneList({ dones }) {
+function DoneList({ dones, editFlag }) {
     return html`
         <div class="col-lg-3 col-md-6 col-sm-12">
             <h2 class="tag">Done</h2>
             <span class="count">(${dones.length})</span>
             <ul class="todo-list">
-                ${dones.map((done, index) => TodoItem(done, index))}
+                ${dones.map((done, index) => TodoItem(done, index, editFlag))}
             </ul>
             <div onclick="showInputModal('dones')" class="todo-list__add">
                 <i class="todo-list__add--icon fa-solid fa-plus"></i>

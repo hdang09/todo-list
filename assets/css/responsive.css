@@ -11,6 +11,10 @@
     #app-content {
         margin-left: 0;
     }
+
+    #task-input .submit-btn {
+        width: 100%;
+    }
 }
 
 /* Tablet */
