@@ -10,9 +10,43 @@ function TodoItem(item, index, editFlag) {
             <h3 class="todo-item__task--view">${item.task}</h3>
             <p class="todo-item__description--view">${item.description}</p>
 
-            <input class="todo-item__priority--edit" value="${item.priority.toUpperCase()}"></input>
-            <input class="todo-item__task--edit" value="${item.task}">
-            <textarea class="todo-item__description--edit" cols="10" rows="5">${item.description}</textarea>
+            <input
+                class="todo-item__priority--edit"
+                value="${item.priority.toUpperCase()}"
+                onkeyup="event.keyCode === 13 && dispatch(
+                    'endEdit',
+                    ${index},
+                    '${item.type}',
+                    this.parentElement.querySelector('.todo-item__priority--edit').value.trim(),
+                    this.parentElement.querySelector('.todo-item__task--edit').value.trim(),
+                    this.parentElement.querySelector('.todo-item__description--edit').value.trim(),
+                )"
+            ></input>
+            <input
+                class="todo-item__task--edit"
+                value="${item.task}"
+                onkeyup="event.keyCode === 13 && dispatch(
+                    'endEdit',
+                    ${index},
+                    '${item.type}',
+                    this.parentElement.querySelector('.todo-item__priority--edit').value.trim(),
+                    this.parentElement.querySelector('.todo-item__task--edit').value.trim(),
+                    this.parentElement.querySelector('.todo-item__description--edit').value.trim(),
+                )"
+            >
+            <textarea
+                class="todo-item__description--edit"
+                cols="10"
+                rows="5"
+                onkeyup="event.keyCode === 13 && dispatch(
+                    'endEdit',
+                    ${index},
+                    '${item.type}',
+                    this.parentElement.querySelector('.todo-item__priority--edit').value.trim(),
+                    this.parentElement.querySelector('.todo-item__task--edit').value.trim(),
+                    this.parentElement.querySelector('.todo-item__description--edit').value.trim(),
+                )"
+            >${item.description}</textarea>
             
             <div class="flex-b">
                 <div>
